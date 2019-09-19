@@ -12,7 +12,7 @@
         
         <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">
       
-       
+        
 
         
     
@@ -34,11 +34,11 @@
               </a>
             </div>
         
-        <div class="volver">
+       <div class="volver">
             <a class="btn btn-primary" href="VerPedidos.html" role="button"><i class="fa fa-arrow-left" ></i> Volver a los pedidos</a>
         </div>
         
-        <h1> Pedido #5: </h1>
+        <h1> Pedido #2: </h1>
         
         <table class="table table-responsive-sm" id="pedido">
                   <thead>
@@ -54,14 +54,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                     <tr>
-                      <td>Príncipe Azul De Cuento</td>
-                      <td>Infantil niño</td>
-                      <td>10-11 años</td>
-                      <td>VII</td>
-                      <td>Molina</td>
-                      <td>Horacio Velev Reyes</td>
-               
+                      <tr>
+                      <td><?php $text=$_POST['text']; echo $text; ?></td>
+                      <td>Infantil Unisex</td>
+                      <td>2-3 años</td>
+                      <td>II</td>
+                      <td>Calama</td>
+                      <td>Olivia Virginia Sohail Basas</td>
+                  
                     </tr>
                     
                   </tbody>
