@@ -34,12 +34,6 @@ $result = $mysqli->query($query);
       
         
 
-        
-    
-    
-    
-    
-    
     
     </head>
     <body>
@@ -58,7 +52,7 @@ $result = $mysqli->query($query);
             <a class="btn btn-primary" href="VerPedidos.php" role="button"><i class="fa fa-arrow-left" ></i> Volver a los pedidos</a>
         </div>
         
-        <h1> Pedido #<?php $id=$_POST['id']; echo $id; ?> : </h1>
+        <h1> Pedido # <?php $id=$_POST['id']; echo $id; ?> : </h1>
         
         <table class="table table-responsive-sm" id="pedido">
                   <thead>

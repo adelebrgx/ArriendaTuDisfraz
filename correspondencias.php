@@ -32,6 +32,13 @@ function getRegion($db, $id){
     return $row2['nombre'];
 }
 
+function getPath($db, $id){
+    $query="SELECT ruta_archivo FROM foto_disfraz WHERE disfraz_id='$id'";
+    $result=$db->query($query);
+    $row= $result->fetch_assoc();
+    return $row['ruta_archivo'];
+}
+
 
 
 

@@ -1,3 +1,24 @@
+<?php
+
+require_once('correspondencias.php');
+
+$db_name="tarea2";
+$db_host="localhost";
+$db_user="cc5002";
+$db_password="programacionweb";
+
+$mysqli = new mysqli($db_host,$db_user,$db_password,$db_name);
+$mysqli->set_charset("utf8");
+
+$query= "SELECT id,comuna, nombre_disfraz, categoria, talla, nombre_contacto FROM disfraz";
+$result = $mysqli->query($query);
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
     
@@ -30,7 +51,7 @@
               <a href="Publicar.php">Publicar Pedido</a>
               <a href="VerPedidos.php">Ver Pedidos</a>
               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
+              <i class="fa fa-bars"></i>
               </a>
             </div>
         
@@ -51,56 +72,46 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Soldado Espacial Stormtrooper</td>
-                      <td>III</td>
-                      <td>Huasco</td>
-                      <td>Infantil Unisex</td>
-                      <td>8-9 años</td>
-                      <td>Liana Pino Arenes Nuero</td>
-                      <td><a class="btn btn-primary" href="Disfraz1.html" role="button">Ver más</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Hulk - Camisa Musculosa</td>
-                      <td>I</td>
-                      <td>Iquique</td>
-                      <td>Infantil niño</td>
-                      <td>4-5 años</td>
-                      <td>Trinidad V. Llantada Gorostegui</td>
-                      <td><a class="btn btn-primary" href="Disfraz2.html" role="button">Ver más</a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Elefante Gigante</td>
-                      <td>XIII</td>
-                      <td>Santiago</td>
-                      <td>Adulto unisex</td>
-                      <td>M</td>
-                      <td>Lucía Lapieza Cerdeiriña</td>
-                      <td><a class="btn btn-primary" href="Disfraz3.html" role="button">Ver más</a></td>
-                    </tr>
-                      <tr>
-                      <th scope="row">4</th>
-                      <td>Dinosaurio</td>
-                      <td>V</td>
-                      <td>Valparaíso</td>
-                      <td>Hombre</td>
-                      <td>XL</td>
-                      <td>Oliverio Roberto Tarela Abdessamie</td>
-                      <td><a class="btn btn-primary" href="Disfraz4.html" role="button">Ver más</a></td>
-                    </tr>
-                      <tr>
-                      <th scope="row">5</th>
-                      <td>Peter Pan</td>
-                      <td>XIII</td>
-                      <td>Maipo</td>
-                      <td>Mujer</td>
-                      <td>S</td>
-                      <td>Wilfredo D. Ayude Zarrouk</td>
-                      <td><a class="btn btn-primary" href="Disfraz5.html" role="button">Ver más</a></td>
-                    </tr>
+                      
+                      <?php 
+                      
+                      
+                      while ( $line = mysqli_fetch_assoc($result)) {
+                          
+                          $id=$line["id"];
+                          $nombreDisfraz=$line['nombre_disfraz'];
+                          $categoria=getCategoria($mysqli,$line["categoria"]);
+                          $talla=getTalla($mysqli,$line["talla"]);
+                          $region=getRegion($mysqli,$line["comuna"]);
+                          $comuna=getComuna($mysqli,$line["comuna"]);
+                          $nombre=$line["nombre_contacto"];
+                          
+                          echo "<tr>
+                              <th scope='row'>".$id."</th>
+                              <td>".$nombreDisfraz."</td>
+                              <td>".$region."</td>
+                              <td>".$comuna."</td>
+                              <td>".$categoria."</td>
+                              <td>".$talla."</td>  
+                              <td>".$nombre."</td>
+                              <td><form method='post' action='Disfraz.php'>
+                              <input type='hidden' name='id' value=".$id.">
+                              <input type='hidden' name='disfraz' value=".$nombreDisfraz.">
+                              <input type='hidden' name='categoria' value=".$line["categoria"].">
+                              <input type='hidden' name='talla' value=".$line["talla"].">
+                              <input type='hidden' name='region' value=".$region.">
+                              <input type='hidden' name='comuna' value=".$comuna.">
+                              <input type='hidden' name='nombre' value=".$nombre.">
+                              <button type='submit' class='btn btn-primary'>Ver más</button></form></td>
+                            </tr>";
+                           
+                           
+                    
+                            }
+                      
+                         ?>
+                    
+                      
                   </tbody>
                 </table>
 

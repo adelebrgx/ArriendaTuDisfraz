@@ -1,3 +1,21 @@
+<?php
+
+require_once('correspondencias.php');
+
+$db_name="tarea2";
+$db_host="localhost";
+$db_user="cc5002";
+$db_password="programacionweb";
+
+$mysqli = new mysqli($db_host,$db_user,$db_password,$db_name);
+$mysqli->set_charset("utf8");
+
+ 
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
     
@@ -37,11 +55,11 @@
             </div>
         
         <div class="volver">
-            <a class="btn btn-primary" href="VerDisfraces.html" role="button"><i class="fa fa-arrow-left" ></i> Volver a los disfraces disponibles</a>
+            <a class="btn btn-primary" href="VerDisfraces.php" role="button"><i class="fa fa-arrow-left" ></i> Volver a los disfraces disponibles</a>
         </div>
         
         
-        <h1> Disfraz #1:  </h1>
+        <h1> Disfraz #<?php $id=$_POST['id']; echo $id; ?> :  </h1>
         
         
              <table class="table table-responsive-sm" id="disfraz">
@@ -57,23 +75,38 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Soldado Espacial Stormtrooper</td>
-                      <td>III</td>
-                      <td>Huasco</td>
-                      <td>Infantil Unisex</td>
-                      <td>8-9 años</td>
-                      <td>Liana Pino Arenes Nuero</td>
-                      </tr>
-                  </tbody>
-                </table>
-        
-                <h3> Fotos(s):</h3>
-    
-                <div class="images">
-                    <div class="popup " onclick="throwImage();"><img src="img/soldadoNina.jpg" alt="No se pudó desplegar el imagen" height="320" width="240" >
-              <img id="myPopup" src="img/soldadoNina.jpg" alt="No se pudó desplegar el imagen" height="800" width="600" class="popuptext">
-            </div>
-                    </div>
+                      <tr>
+                      <?php 
+                      $disfraz=$_POST['disfraz'];
+                      $categoria=getCategoria($mysqli, $_POST['categoria']);
+                      $talla=getTalla($mysqli,$_POST['talla']);
+                      $region=$_POST['region'];
+                      $comuna=$_POST['comuna'];
+                      $nombre=$_POST['nombre'];
+                      
+                      echo "<td>".$disfraz."</td>
+                      <td>".$region."</td>
+                      <td>".$comuna."</td>
+                      <td>".$categoria."</td>
+                      <td>".$talla."</td>
+                      <td>".$nombre."</td>  
+                    " ;
+                          
+                    $path=getPath($mysqli, $_POST['id']);
+                    echo " </tr>
+                          </tbody>
+                        </table>
+
+                        <h3> Fotos(s):</h3>
+
+
+                        <div class='images'>
+                            <div class='popup' onclick='throwImage();'><img src=".$path." alt='No se pudó desplegar el imagen' height='320' width='240' >
+                            <img id='myPopup' src=".$path ." alt='No se pudó desplegar el imagen' height='800' width='600' class='popuptext'>
+                            </div>
+                        </div>"
+                        
+                        ?>
         
 
 
