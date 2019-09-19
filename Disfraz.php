@@ -7,12 +7,13 @@
         
          <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-       <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
         <meta charset="utf-8">
         
-        <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">
+         <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">
       
-       
+      
+
         
     
     
@@ -22,12 +23,14 @@
     
     </head>
     <body>
+        
+        
         <div class="topnav" id="myTopnav">
-              <a href="index.html" class="active">Inicio</a>
-              <a href="Agregar.html">Agregar Disfraz</a>
-              <a href="VerDisfraces.html">Ver Disfraces</a>
-              <a href="Publicar.html">Publicar Pedido</a>
-              <a href="VerPedidos.html">Ver Pedidos</a>
+              <a href="indexPage.php" class="active">Inicio</a>
+              <a href="Agregar.php">Agregar Disfraz</a>
+              <a href="VerDisfraces.php">Ver Disfraces</a>
+              <a href="Publicar.php">Publicar Pedido</a>
+              <a href="VerPedidos.php">Ver Pedidos</a>
               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
               </a>
@@ -37,7 +40,8 @@
             <a class="btn btn-primary" href="VerDisfraces.html" role="button"><i class="fa fa-arrow-left" ></i> Volver a los disfraces disponibles</a>
         </div>
         
-        <h1> Disfraz #3:  </h1>
+        
+        <h1> Disfraz #1:  </h1>
         
         
              <table class="table table-responsive-sm" id="disfraz">
@@ -53,23 +57,24 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Elefante Gigante</td>
-                      <td>XIII</td>
-                      <td>Santiago</td>
-                      <td>Adulto unisex</td>
-                      <td>M</td>
-                      <td>Lucía Lapieza Cerdeiriña</td>
-                    </tr>
+                      <td>Soldado Espacial Stormtrooper</td>
+                      <td>III</td>
+                      <td>Huasco</td>
+                      <td>Infantil Unisex</td>
+                      <td>8-9 años</td>
+                      <td>Liana Pino Arenes Nuero</td>
+                      </tr>
                   </tbody>
                 </table>
         
-        
                 <h3> Fotos(s):</h3>
+    
                 <div class="images">
-                    <div class="popup " onclick="throwImage();"><img src="img/disfraz-para-hombre-y-mujer-elefante-gigante.jpg" alt="No se pudó desplegar el imagen" height="320" width="240" >
-                    <img id="myPopup" src="img/disfraz-para-hombre-y-mujer-elefante-gigante.jpg" alt="No se pudó desplegar el imagen" height="800" width="600" class="popuptext">
+                    <div class="popup " onclick="throwImage();"><img src="img/soldadoNina.jpg" alt="No se pudó desplegar el imagen" height="320" width="240" >
+              <img id="myPopup" src="img/soldadoNina.jpg" alt="No se pudó desplegar el imagen" height="800" width="600" class="popuptext">
+            </div>
                     </div>
-                </div>
+        
 
 
 <script>
@@ -82,14 +87,15 @@
     x.className = "topnav";
   }
 }
-
-     function throwImage(){
+    
+    function throwImage(){
       
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 
     }
 
+    
 </script>
         
        

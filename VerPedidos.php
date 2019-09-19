@@ -47,11 +47,11 @@ $result = $mysqli->query($query);
     </head>
     <body>
        <div class="topnav" id="myTopnav">
-              <a href="index.html" class="active">Inicio</a>
-              <a href="Agregar.html">Agregar Disfraz</a>
-              <a href="VerDisfraces.html">Ver Disfraces</a>
-              <a href="Publicar.html">Publicar Pedido</a>
-              <a href="VerPedidos.html">Ver Pedidos</a>
+              <a href="indexPage.php" class="active">Inicio</a>
+              <a href="Agregar.php">Agregar Disfraz</a>
+              <a href="VerDisfraces.php">Ver Disfraces</a>
+              <a href="Publicar.php">Publicar Pedido</a>
+              <a href="VerPedidos.php">Ver Pedidos</a>
               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
               </a>
@@ -81,15 +81,31 @@ $result = $mysqli->query($query);
                       
                       while ( $line = mysqli_fetch_assoc($result)) {
                           
+                          $id=$line["id"];
+                          $nombreDisfraz=$line['nombre_disfraz'];
+                          $categoria=getCategoria($mysqli,$line["categoria"]);
+                          $talla=getTalla($mysqli,$line["talla"]);
+                          $region=getRegion($mysqli,$line["comuna_solicitante"]);
+                          $comuna=getComuna($mysqli,$line["comuna_solicitante"]);
+                          $nombre=$line["nombre_solicitante"];
+                          
                           echo "<tr>
-                              <th scope='row'>".$line["id"]."</th>
-                              <td>".$line['nombre_disfraz']."</td>
-                              <td>".getCategoria($mysqli,$line["categoria"])."</td>
-                              <td>".getTalla($mysqli,$line["talla"])."</td>
-                              <td>".getRegion($mysqli,$line["comuna_solicitante"])."</td>
-                              <td>".getComuna($mysqli,$line["comuna_solicitante"])."</td>
-                              <td>".$line["nombre_solicitante"]."</td>
-                              <td><form method='post' action='Pedido.php'><input type='hidden' name='text' value=".$line['nombre_disfraz']."><button type='submit'>Ver mas</button></form></td>
+                              <th scope='row'>".$id."</th>
+                              <td>".$nombreDisfraz."</td>
+                              <td>".$categoria."</td>
+                              <td>".$talla."</td>
+                              <td>".$region."</td>
+                              <td>".$comuna."</td>
+                              <td>".$nombre."</td>
+                              <td><form method='post' action='Pedido.php'>
+                              <input type='hidden' name='id' value=".$id.">
+                              <input type='hidden' name='disfraz' value=".$nombreDisfraz.">
+                              <input type='hidden' name='categoria' value=".$line["categoria"].">
+                              <input type='hidden' name='talla' value=".$line["talla"].">
+                              <input type='hidden' name='region' value=".$region.">
+                              <input type='hidden' name='comuna' value=".$comuna.">
+                              <input type='hidden' name='nombre' value=".$nombre.">
+                              <button type='submit' class='btn btn-primary'>Ver más</button></form></td>
                             </tr>";
                            
                            

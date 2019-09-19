@@ -24,11 +24,11 @@
     </head>
     <body>
         <div class="topnav" id="myTopnav">
-              <a href="index.html" class="active">Inicio</a>
-              <a href="Agregar.html">Agregar Disfraz</a>
-              <a href="VerDisfraces.html">Ver Disfraces</a>
-              <a href="Publicar.html">Publicar Pedido</a>
-              <a href="VerPedidos.html">Ver Pedidos</a>
+              <a href="indexPage.php" class="active">Inicio</a>
+              <a href="Agregar.php">Agregar Disfraz</a>
+              <a href="VerDisfraces.php">Ver Disfraces</a>
+              <a href="Publicar.php">Publicar Pedido</a>
+              <a href="VerPedidos.php">Ver Pedidos</a>
               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
               </a>
