@@ -4,7 +4,7 @@ This project was designed as part of a school project for the course "CC5002-1 D
 
 # How to 
 
-To visualize the web pages, open index.html in a web browser. 
+To visualize the web pages, open localhost/indexPage.php in a local web server. 
 The project is also visible at: [https://anakena.dcc.uchile.cl/~abourgei/Tarea/](https://anakena.dcc.uchile.cl/~abourgei/Tarea/)
 
 # Author
