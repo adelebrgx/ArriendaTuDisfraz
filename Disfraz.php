@@ -1,6 +1,6 @@
 <?php
 
-require_once('correspondencias.php');
+require_once('scriptPHP/correspondencias.php');
 
 $db_name="tarea2";
 $db_host="localhost";
@@ -27,17 +27,8 @@ $mysqli->set_charset("utf8");
 
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
         <meta charset="utf-8">
-        
-         <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">
-      
-      
-
-        
-    
-    
-    
-    
-    
+        <script src="js/Validations.js"></script>
+         <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">  
     
     </head>
     <body>
@@ -74,7 +65,7 @@ $mysqli->set_charset("utf8");
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    
                       <tr>
                       <?php 
                       $disfraz=$_POST['disfraz'];
@@ -107,30 +98,10 @@ $mysqli->set_charset("utf8");
                         </div>"
                         
                         ?>
-        
-
-
-<script>
     
-    function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-    
-    function throwImage(){
-      
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-
-    }
-
-    
-</script>
-        
+                      </tr>
+                 </tbody>
+        </table>
        
         
     

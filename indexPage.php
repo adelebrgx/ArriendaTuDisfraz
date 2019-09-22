@@ -1,26 +1,22 @@
+<?php 
+session_start();
+$message="";
+if(!empty($_SESSION['message'])) {
+   $message = $_SESSION['message'];}
+?>
+
 <!DOCTYPE html>
 <html>
     
     <head>
         
-        <title>arrienda tu disfraz!</title>
-        
+        <title>arrienda tu disfraz!</title> 
          <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-
-        
-        <meta charset="utf-8">
-        
+        <script src="js/Validations.js"></script>
+        <meta charset="utf-8">       
         <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">
-      
-       
-
         
-    
-    
-    
-    
-    
     
     </head>
     <body>
@@ -35,53 +31,26 @@
               </a>
             </div>
         
+            <?php echo '<h3 style="color:red;">'.$message.'</h3>';
+            unset($_SESSION['message']);?>
+        
         <h1> Arrienda tu disfraz! </h1>
         
         <h3> Qué estás buscando ? </h3>
         
         <div class="options">
-            <a class="btn btn-secondary" href="Agregar.html" role="button"> Agregar Disfraz</a><br>
-            <a class="btn btn-secondary" href="VerDisfraces.html" role="button"> Ver los disfraces disponibles</a><br>
-            <a class="btn btn-secondary" href="Publicar.html" role="button"> Publicar Pedido</a><br>
-            <a class="btn btn-secondary" href="VerPedidos.html" role="button"> Ver los pedidos actuales</a><br>
+            <a class="btn btn-secondary" href="Agregar.php" role="button"> Agregar Disfraz</a><br>
+            <a class="btn btn-secondary" href="VerDisfraces.php" role="button"> Ver los disfraces disponibles</a><br>
+            <a class="btn btn-secondary" href="Publicar.php" role="button"> Publicar Pedido</a><br>
+            <a class="btn btn-secondary" href="VerPedidos.php" role="button"> Ver los pedidos actuales</a><br>
 
         
         </div>
         
 
-    <script>
-        
-        function myFunction() {
-              var x = document.getElementById("myTopnav");
-              if (x.className === "topnav") {
-                x.className += " responsive";
-              } else {
-                x.className = "topnav";
-              }
-            }
-        
-        
-        
-    </script>
+  
     
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </html>

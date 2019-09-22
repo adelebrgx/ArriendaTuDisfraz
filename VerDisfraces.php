@@ -1,6 +1,6 @@
 <?php
 
-require_once('correspondencias.php');
+require_once('scriptPHP/correspondencias.php');
 
 $db_name="tarea2";
 $db_host="localhost";
@@ -12,7 +12,6 @@ $mysqli->set_charset("utf8");
 
 $query= "SELECT id,comuna, nombre_disfraz, categoria, talla, nombre_contacto FROM disfraz";
 $result = $mysqli->query($query);
-
 
 
 
@@ -32,6 +31,7 @@ $result = $mysqli->query($query);
         <meta charset="utf-8">
         
          <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">
+        <script src="js/Validations.js"></script>
       
       
 
@@ -113,22 +113,7 @@ $result = $mysqli->query($query);
                     
                       
                   </tbody>
-                </table>
-
-
-<script>
-    
-    function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
-    
-</script>
+        </table>
         
        
         

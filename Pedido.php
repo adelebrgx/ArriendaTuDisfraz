@@ -24,16 +24,11 @@ $result = $mysqli->query($query);
     <head>
         
         <title>arrienda tu disfraz!</title>
-        
          <link rel="stylesheet" type="text/css" href="css/style.css"/>
-
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
         <meta charset="utf-8">
-        
+        <script src="js/Validations.js"></script>
         <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">
-      
-        
-
     
     </head>
     <body>
@@ -92,26 +87,6 @@ $result = $mysqli->query($query);
                     
                   </tbody>
                 </table>
-        
-
-
-        
-      
-
-
-<script>
-    
-    function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
-    
-</script>
         
        
 

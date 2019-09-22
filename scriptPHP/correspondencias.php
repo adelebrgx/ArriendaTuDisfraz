@@ -14,11 +14,28 @@ function getTalla($db, $id ){
     return $row["descripcion"];
 }
 
+function getIdTalla($db, $desc){
+    $descp=limpiar($db,$desc);
+    $query="SELECT id FROM talla WHERE descripcion='$descp' " ;
+    $result=$db->query($query);
+    $row= $result->fetch_assoc();
+    return $row["id"];
+}
+
 function getComuna($db, $id ){
+    
     $query="SELECT nombre FROM comuna WHERE id='$id' " ;
     $result=$db->query($query);
     $row= $result->fetch_assoc();
     return $row["nombre"];
+}
+
+function getIdComuna($db, $nombre){
+    $ids=limpiar($db, $nombre);
+    $query="SELECT id FROM comuna WHERE nombre='$nombre' " ;
+    $result=$db->query($query);
+    $row= $result->fetch_assoc();
+    return $row["id"];
 }
 
 function getRegion($db, $id){
@@ -39,7 +56,9 @@ function getPath($db, $id){
     return $row['ruta_archivo'];
 }
 
-
+function limpiar($db, $str){
+	return htmlspecialchars($db->real_escape_string($str));
+}
 
 
 ?>
