@@ -14,5 +14,5 @@ Adèle Bourgeix
 # Versions
 
 Version 1 released on August 30th, 2019
-
+Version 2 released on October 1st, 2019
 
