@@ -1,14 +1,9 @@
 <?php
 
-require_once('scriptPHP/correspondencias.php');
+require_once('correspondencias.php');
+require_once('db_config.php');
 
-$db_name="tarea2";
-$db_host="localhost";
-$db_user="cc5002";
-$db_password="programacionweb";
-
-$mysqli = new mysqli($db_host,$db_user,$db_password,$db_name);
-$mysqli->set_charset("utf8");
+$mysqli = DbConfig::getConnection();
 
  
 
@@ -102,6 +97,19 @@ $mysqli->set_charset("utf8");
                       </tr>
                  </tbody>
         </table>
+        
+        <script>
+  
+    
+    function throwImage(){
+      
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+
+    }
+
+    
+</script>
        
         
     

@@ -21,7 +21,7 @@ if(!empty($_SESSION['errores'])) {
         <meta charset="utf-8">
         
     
-        <script src="Validations.js"></script>
+        <script src="js/Validations.js"></script>
         
         <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">
         

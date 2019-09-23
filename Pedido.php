@@ -1,14 +1,8 @@
 <?php
-
 require_once('correspondencias.php');
+require_once('db_config.php');
 
-$db_name="tarea2";
-$db_host="localhost";
-$db_user="cc5002";
-$db_password="programacionweb";
-
-$mysqli = new mysqli($db_host,$db_user,$db_password,$db_name);
-$mysqli->set_charset("utf8");
+$mysqli = DbConfig::getConnection();
 
 $query= "SELECT id,nombre_disfraz,categoria,talla,nombre_solicitante,comuna_solicitante FROM pedido";
 $result = $mysqli->query($query);

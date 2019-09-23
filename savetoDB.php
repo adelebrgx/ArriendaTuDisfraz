@@ -1,21 +1,15 @@
 <?php 
 
 require_once("correspondencias.php");
+require_once('db_config.php');
+
+
 
 
 function savePedido($nombre, $descripcion,$categoria, $talla,$nombresol,$email,$celular,$region,$comuna){
     $result=true;
 
-
-    $db_name="tarea2";
-    $db_host="localhost";
-    $db_user="cc5002";
-    $db_password="programacionweb";
-
-    $mysqli = new mysqli($db_host,$db_user,$db_password,$db_name);
-    $mysqli->set_charset("utf8");
-    
-    
+    $mysqli = DbConfig::getConnection();
     $stmt = $mysqli->prepare("INSERT INTO pedido (nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_solicitante, email_solicitante,celular_solicitante, comuna_solicitante) VALUES (?,?,?,?,?,?,?,?,?)");
     $stmt->bind_param("ssiissssi", $nombre_db, $descripcion_db,$categoria_db, $talla_db,$fecha_db,$nombresol_db,$email_db,$celular_db,$comuna_db);
 
@@ -52,13 +46,7 @@ function saveDisfraz($nombre, $descripcion,$categoria, $talla,$nombresol,$email,
     $result=true;
 
 
-    $db_name="tarea2";
-    $db_host="localhost";
-    $db_user="cc5002";
-    $db_password="programacionweb";
-
-    $mysqli = new mysqli($db_host,$db_user,$db_password,$db_name);
-    $mysqli->set_charset("utf8");
+    $mysqli = DbConfig::getConnection();
     
     
     $stmt = $mysqli->prepare("INSERT INTO disfraz (comuna, nombre_disfraz, descripcion, categoria, talla, fecha_ingreso, nombre_contacto, email_contacto, celular_contacto) VALUES (?,?,?,?,?,?,?,?,?)");

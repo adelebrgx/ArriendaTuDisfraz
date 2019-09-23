@@ -1,18 +1,21 @@
 <?php
 
-require_once('scriptPHP/correspondencias.php');
+require_once('correspondencias.php');
+require_once('db_config.php');
 
-$db_name="tarea2";
-$db_host="localhost";
-$db_user="cc5002";
-$db_password="programacionweb";
+$mysqli = DbConfig::getConnection();
 
-$mysqli = new mysqli($db_host,$db_user,$db_password,$db_name);
-$mysqli->set_charset("utf8");
 
-$query= "SELECT id,nombre_disfraz,categoria,talla,nombre_solicitante,comuna_solicitante FROM pedido";
+if (isset($_GET["page"])){ 
+    $page  = $_GET["page"]; } 
+else { 
+    $page=1; }
+
+$results_per_page=5;
+$start_from = ($page-1) * $results_per_page;
+
+$query= "SELECT id,nombre_disfraz,categoria,talla,nombre_solicitante,comuna_solicitante FROM pedido LIMIT $start_from,$results_per_page";
 $result = $mysqli->query($query);
-
 
 
 
@@ -123,10 +126,21 @@ $result = $mysqli->query($query);
 
 
 
-        
-       
+        <div class="links">
+                    <?php 
+                $sql = "SELECT COUNT(ID) AS total FROM pedido";
+                $result = $mysqli->query($sql);
+                $row = $result->fetch_assoc();
+                $total_pages = ceil($row["total"] / $results_per_page); // calculate total pages with results
 
-    
+                for ($i=1; $i<=$total_pages; $i++) {  // print links for all pages
+                            echo "<a href='VerPedidos.php?page=".$i."'";
+                            if ($i==$page)  echo " class='curPage'";
+                            echo ">".$i."</a> "; 
+                }; 
+                ?>   
+
+    </div>
     
     </body>
 
