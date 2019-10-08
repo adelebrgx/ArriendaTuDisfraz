@@ -271,25 +271,32 @@ function errorAgregar(){
     var correo=document.getElementById("email").value;
     var celular=document.getElementById("celular").value;
     var image= document.getElementById("Foto");
-    console.log(image.value);
+    
     
     var foto1=document.getElementById("foto-1");
     var foto2=document.getElementById("foto-2");
     var foto3=document.getElementById("foto-3");
     var foto4=document.getElementById("foto-4");
 
+    console.log(talla);
     
+    
+    var optionTalla=["O meses","3 meses","6 meses","12 meses","2-3 años","4-5 años","6-7 años","8-9 años","10-11 años","12-14 años"];
     var errortext="";
     var errortext1="\n";
     
+    
+    
     if (region==0){
         errortext+= "Por favor ingresa su región \n" ;
+
         result=false;
     }
-    if (comuna==0){
+    if (comuna=="Seleciona una comuna" || comuna==0){
         errortext+= "Por favor ingresa su comuna \n" ;
         result=false;
     }
+    
     if(nombredis.length==0){
         errortext+= "Por favor ingresa un nombre para su disfraz \n";
         result=false;
@@ -306,7 +313,7 @@ function errorAgregar(){
         errortext+= "Por favor ingresa una categoría para su disfraz \n";
         result=false;
     }
-    if(talla==0){
+    if(talla=="Seleciona una talla" || talla==0){
         errortext+="Por favor ingresa una talla para su disfraz \n";
         result=false;
     }
@@ -343,10 +350,7 @@ function errorAgregar(){
         result=false;
     }
     
-    if(errortext.length==0){
-        errortext+="Su disfraz fue publicado en nuestra plataforma !";
-        
-    }
+    
     if (result==false){
        window.alert(errortext+errortext1);
         

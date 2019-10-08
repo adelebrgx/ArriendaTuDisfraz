@@ -4,44 +4,59 @@ require_once('savetoDB.php');
 
 
 
-
-function check($method,$camp){
-	return isset($method,$camp);
+function checksize($value){
+    return strlen($value)!=0;
+}
+function checkvalue($value){
+    return $value!=0;
 }
 
 $errores= array();
 
-if(!check($_POST,'nombre-disfraz')){
+if(!checksize($_POST['nombre-disfraz']) ){
     array_push($errores,"Nombre de disfraz no válido");
+  
 }
-if(!check($_POST,'descripcion-disfraz')){
+if(!checksize($_POST['descripcion-disfraz'] || strlen($_POST['descripcion-disfraz'])>=500)){
     array_push($errores,"Descripción no válida");
 }
-if(!check($_POST,'categoria')){
+if(!checkvalue($_POST['categoria'])){
     array_push($errores,"Categoria no válida");
 }
-if(!check($_POST,'talla')){
+if($_POST['talla']=="Seleciona una talla"){
     array_push($errores,"Talla no válida");
 }
-if(!check($_POST,'nombre')){
+if(!checksize($_POST['nombre']) || strlen($_POST['descripcion-disfraz'])>80 || strlen($_POST['descripcion-disfraz'])<3){
     array_push($errores,"Nombre no válido");
 }
-if(!check($_POST,'email')){
+if(!checksize($_POST['email']) || !validate_mail($_POST['email'])){
     array_push($errores,"Correo no válido");
 }
-if(!check($_POST,'celular')){
+if(!checksize($_POST['celular']) || !validate_phone($_POST['celular'])){
     array_push($errores,"Celular no válido");
 }
-if(!check($_POST,'region')){
+
+if(!checkvalue($_POST['region'])){
     array_push($errores,"Region no válida");
+   
 }
-if(!check($_POST,'comuna')){
+if(($_POST['comuna'])=="Seleciona una comuna"){
     array_push($errores,"Comuna no válida");
 }
 
-if(!check($_FILES,'foto')){
-    array_push($errores,"Foto no válida");
+
+if($_FILES['foto']['name']==""){
+   array_push($errores,"Foto no válida");
+
 }
+
+foreach($_FILES as $foto){
+    if($foto['type']!="image/jpeg" && $foto['type']!="image/png" && $foto['type']!="image/jpg"){
+        array_push($errores, "Solo se pueden agregar fotos");
+    }
+}
+
+
 
 if(count($errores)!=0){
     session_start();
@@ -49,6 +64,12 @@ if(count($errores)!=0){
     redirect_to('Agregar.php');
 }
 
+function validate_phone($phone){
+    return strlen($phone)>=10;
+}
+function validate_mail($correo){
+    return preg_match('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',$correo);
+}
 
 $nombre=$_POST["nombre-disfraz"];
 $descripcion=$_POST["descripcion-disfraz"];
@@ -100,14 +121,19 @@ if(isset($_FILES['foto-4']) && !empty($_FILES['foto-4'])){
  array_push($fotos, $foto4);
 
 }
+$can=true;
+if(count($errores)>0){
+    $can=false;
+}
 
 
+if($can){
 if (saveDisfraz($nombre, $descripcion,$categoria, $talla,$nombresol,$email,$celular,$region,$comuna, $fotos)){
     session_start();
     $_SESSION['message'] = 'Su disfraz fue agregado a la base de datos';
     redirect_to('indexPage.php');
 }
-
+}
 function redirect_to( $location = NULL ) {
         if ($location != NULL) {
             header("Location: {$location}");

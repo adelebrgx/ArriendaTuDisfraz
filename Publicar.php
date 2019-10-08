@@ -45,7 +45,7 @@ if(!empty($_SESSION['errores'])) {
             unset($_SESSION['errores']);?>
         
         <div class="form">
-            <form action="processPublicar.php" method="post" >
+            <form action="processPublicar.php" method="post"  onSubmit=" return errorPublicar();">
               
                 
             <div class="form-row">
@@ -146,7 +146,7 @@ if(!empty($_SESSION['errores'])) {
               </div>
                 
                 <div class="button-confirm" style="text-align:center; margin-top:2%;">
-                <button type="submit" class="btn btn-secondary" onclick="return errorPublicar();" >Publica tu pedido !</button></div>
+                <button type="submit" class="btn btn-secondary" >Publica tu pedido !</button></div>
                 
             </form>
         </div>

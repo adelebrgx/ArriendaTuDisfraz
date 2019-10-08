@@ -35,7 +35,7 @@ if(!empty($_SESSION['errores'])) {
             unset($_SESSION['errores']);?>
         
         <div class="form">
-            <form action="processAgregar.php"  method="post" enctype="multipart/form-data">
+            <form action="processAgregar.php"  method="post" onSubmit=" return errorAgregar();" enctype="multipart/form-data">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="region"><strong>Region </strong></label>
@@ -144,7 +144,7 @@ if(!empty($_SESSION['errores'])) {
                 </div>
                 
                 <div class="button-confirm" style="text-align:center; margin-top:2%;">
-                <button type="submit" class="btn btn-secondary" onclick=" return errorAgregar();" >Recicla tu disfraz !</button></div>
+                <button type="submit" class="btn btn-secondary"  >Recicla tu disfraz !</button></div>
                 
             </form>
         </div>
