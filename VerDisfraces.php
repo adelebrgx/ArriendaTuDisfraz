@@ -48,7 +48,7 @@ $result = $mysqli->query($query);
     </head>
     <body>
         <div class="topnav" id="myTopnav">
-              <a href="indexPage.php" class="active">Inicio</a>
+              <a href="index.php" class="active">Inicio</a>
               <a href="Agregar.php">Agregar Disfraz</a>
               <a href="VerDisfraces.php">Ver Disfraces</a>
               <a href="Publicar.php">Publicar Pedido</a>
@@ -88,6 +88,8 @@ $result = $mysqli->query($query);
                           $region=getRegion($mysqli,$line["comuna"]);
                           $comuna=getComuna($mysqli,$line["comuna"]);
                           $nombre=$line["nombre_contacto"];
+                           $c=htmlspecialchars($comuna);
+                          $r=htmlspecialchars($region);
                           
                           echo "<tr>
                               <th scope='row'>".$id."</th>
@@ -102,7 +104,7 @@ $result = $mysqli->query($query);
                               <input type='hidden' name='disfraz' value=".$nombreDisfraz.">
                               <input type='hidden' name='categoria' value=".$line["categoria"].">
                               <input type='hidden' name='talla' value=".$line["talla"].">
-                              <input type='hidden' name='region' value=".$region.">
+                              <input type='hidden' name='region' value=".$r.">
                               <input type='hidden' name='comuna' value=".$comuna.">
                               <input type='hidden' name='nombre' value=".$nombre.">
                               <button type='submit' class='btn btn-primary'>Ver más</button></form></td>

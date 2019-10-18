@@ -19,7 +19,7 @@ if(!empty($_SESSION['errores'])) {
     </head>
     <body>
             <div class="topnav" id="myTopnav">
-              <a href="indexPage.php" class="active">Inicio</a>
+              <a href="index.php" class="active">Inicio</a>
               <a href="Agregar.php">Agregar Disfraz</a>
               <a href="VerDisfraces.php">Ver Disfraces</a>
               <a href="Publicar.php">Publicar Pedido</a>
@@ -71,12 +71,12 @@ if(!empty($_SESSION['errores'])) {
             <div class="form-row">
               <div class="form-group" style="margin-left:0.5%;">
                 <label for="nombre-disfraz"><strong>Nombre de disfraz </strong></label><br>
-                <input type="text" name="nombre-disfraz" cols="30"   id="nombre-disfraz" placeholder="Princesa azul">
+                <input type="text" name="nombre-disfraz"    id="nombre-disfraz" placeholder="Princesa azul">
               </div>
                 
               <div class="form-group" style="margin-left:1%;">
                 <label for="descripcion-disfraz"><strong>Descripción de disfraz </strong></label><br>
-                  <input type="text" name="descripcion-disfraz" cols="40" rows="8"  id="descripcion-disfraz" placeholder="Un disfraz de princesa azul, para niñas de entre 6 y 10 años.">
+                  <input type="text" name="descripcion-disfraz"   id="descripcion-disfraz" placeholder="Un disfraz de princesa azul, para niñas de entre 6 y 10 años.">
               </div>
                 
                 
@@ -108,7 +108,7 @@ if(!empty($_SESSION['errores'])) {
               </div>
                 
                 <div class="form-group" id="newFile">
-                    <label for="Foto-disfraz"> <strong>Ingresa una foto:</strong> </label><br>
+                    <label for="foto"> <strong>Ingresa una foto:</strong> </label><br>
                     <input  name="foto" type="file" id="Foto">
                     <button onclick="newArchivo()">Agregar otra foto</button><br>
                     <p id="stop"></p>
@@ -121,7 +121,7 @@ if(!empty($_SESSION['errores'])) {
                 <div class="form-row">
                     <div class="form-group">
                     <label for="nombre"><strong>Nombre de contacto </strong></label><br>
-                    <input type="text" name="nombre" cols="80" id="nombre" placeholder="Adèle Bourgeix">
+                    <input type="text" name="nombre"  id="nombre" placeholder="Adèle Bourgeix">
                     
                     
                     
@@ -129,13 +129,13 @@ if(!empty($_SESSION['errores'])) {
                     
                     <div class="form-group" style="margin-left:1%;">
                     <label for="email"><strong>Correo de contacto </strong></label><br>
-                    <input type="text" name="email" cols="30" id="email" placeholder="adele.bourgeix@gmail.com">
+                    <input type="text" name="email"  id="email" placeholder="adele.bourgeix@gmail.com">
                     </div>
                     
                     
                     <div class="form-group" style="margin-left:1%;">
                     <label for="celular"><strong>Número de cellular de contacto </strong></label><br>
-                    <input type="text" name="celular" cols="15" id="celular" placeholder="+56xxxxxxxxx">
+                    <input type="text" name="celular"  id="celular" placeholder="+56xxxxxxxxx">
                     </div>
                 
                 
@@ -150,10 +150,6 @@ if(!empty($_SESSION['errores'])) {
         </div>
      
         
-   
-    
-    </body>
-
 <script>
  
 
@@ -180,7 +176,11 @@ function newArchivo() {
        
 }
     
-</script>
+</script>   
+    
+    </body>
+
+
 
 
 </html>

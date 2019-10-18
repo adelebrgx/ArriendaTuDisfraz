@@ -77,7 +77,7 @@ if($can){
      echo "hello";
         session_start();
      $_SESSION['message'] = 'Su pedido fue agregado a la base de datos';
-     redirect_to('indexPage.php');
+     redirect_to('index.php');
     
     };
 }

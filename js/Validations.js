@@ -431,8 +431,9 @@ function errorPublicar(){
         errortext+="Por favor ingresa un nombre de contacto para el disfraz que está buscando \n";
         result=false;
     }
-    if (nombre.length<3 && nombre.length!=0 || nombre.length >8 ){
+    if (nombre.length<3 || nombre.length >80 ){
         errortext1+="Su nombre debe contener al menos 3 caracteres y a lo más 80 \n";
+        er
         result=false;
     }
     if(!isValidPhone(celular)){

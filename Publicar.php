@@ -29,7 +29,7 @@ if(!empty($_SESSION['errores'])) {
     </head>
     <body>
         <div class="topnav" id="myTopnav">
-              <a href="indexPage.php" class="active">Inicio</a>
+              <a href="index.php" class="active">Inicio</a>
               <a href="Agregar.php">Agregar Disfraz</a>
               <a href="VerDisfraces.php">Ver Disfraces</a>
               <a href="Publicar.php">Publicar Pedido</a>
@@ -51,12 +51,12 @@ if(!empty($_SESSION['errores'])) {
             <div class="form-row">
               <div class="form-group">
                 <label for="nombre-disfraz"><strong>Nombre de disfraz </strong></label><br>
-                <input type="text"  cols="30"   name="nombre-disfraz" id="nombre-disfraz" placeholder="Princesa azul">
+                <input type="text"     name="nombre-disfraz" id="nombre-disfraz" placeholder="Princesa azul">
               </div>
                 
               <div class="form-group" style="margin-left:1%;">
                 <label for="descripcion-disfraz"><strong>Descripción de disfraz </strong></label><br>
-                  <input type="text" cols="40" rows="8"  name="descripcion-disfraz" id="descripcion-disfraz" placeholder="Un disfraz de princesa azul, para niñas de entre 6 y 10 años.">
+                  <input type="text"   name="descripcion-disfraz" id="descripcion-disfraz" placeholder="Un disfraz de princesa azul, para niñas de entre 6 y 10 años.">
               </div>
                 
                 
@@ -91,7 +91,7 @@ if(!empty($_SESSION['errores'])) {
                 <div class="form-row">
                     <div class="form-group">
                     <label for="nombre-solicitante"><strong>Nombre del solicitante </strong></label><br>
-                    <input type="text" cols="80" name="nombre-solicitante" id="nombre-solicitante" placeholder="Adèle Bourgeix">
+                    <input type="text"  name="nombre-solicitante" id="nombre-solicitante" placeholder="Adèle Bourgeix">
                     
                     
                     
@@ -99,13 +99,13 @@ if(!empty($_SESSION['errores'])) {
                     
                     <div class="form-group" style="margin-left:1%;">
                     <label for="email-solicitante"><strong>Correo de contacto del solicitante</strong></label><br>
-                    <input type="text" cols="30" name="email-solicitante" id="email-solicitante" placeholder="adele.bourgeix@gmail.com">
+                    <input type="text"  name="email-solicitante" id="email-solicitante" placeholder="adele.bourgeix@gmail.com">
                     </div>
                     
                     
                     <div class="form-group" style="margin-left:1%;">
                     <label for="celular-solicitante"><strong>Número de cellular del solicitante </strong></label><br>
-                    <input type="text" name="celular-solicitante" cols="15" id="celular-solicitante" placeholder="+56xxxxxxxxx">
+                    <input type="text" name="celular-solicitante" id="celular-solicitante" placeholder="+56xxxxxxxxx">
                     </div>
                 
                 

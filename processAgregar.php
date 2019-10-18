@@ -131,7 +131,7 @@ if($can){
 if (saveDisfraz($nombre, $descripcion,$categoria, $talla,$nombresol,$email,$celular,$region,$comuna, $fotos)){
     session_start();
     $_SESSION['message'] = 'Su disfraz fue agregado a la base de datos';
-    redirect_to('indexPage.php');
+    redirect_to('index.php');
 }
 }
 function redirect_to( $location = NULL ) {

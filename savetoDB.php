@@ -96,9 +96,7 @@ function uploadImage($name){
     if (!file_exists($uploaddir)){
 				mkdir($uploaddir, 0777, true);
 			}
-    if (move_uploaded_file($_FILES[$name]['tmp_name'], $uploadfile)) {
-    echo "El archivo es válido y fue cargado exitosamente.\n"; } else {
-    echo "¡Posible ataque de carga de archivos!\n"; }
+    move_uploaded_file($_FILES[$name]['tmp_name'], $uploadfile); 
 }
 
 ?>

@@ -27,7 +27,7 @@ $result = $mysqli->query($query);
     </head>
     <body>
        <div class="topnav" id="myTopnav">
-              <a href="indexPage.php" class="active">Inicio</a>
+              <a href="index.php" class="active">Inicio</a>
               <a href="Agregar.php">Agregar Disfraz</a>
               <a href="VerDisfraces.php">Ver Disfraces</a>
               <a href="Publicar.php">Publicar Pedido</a>

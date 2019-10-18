@@ -23,14 +23,23 @@ $mysqli = DbConfig::getConnection();
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
         <meta charset="utf-8">
         <script src="js/Validations.js"></script>
-         <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css">  
+         <link rel="stylesheet" href="fontawesome-free-5.8.1-web/css/all.css"> 
+        <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="js/search.js"></script>
+        
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+       crossorigin=""/>
+         <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+       integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+       crossorigin=""></script>
     
     </head>
     <body>
         
         
         <div class="topnav" id="myTopnav">
-              <a href="indexPage.php" class="active">Inicio</a>
+              <a href="index.php" class="active">Inicio</a>
               <a href="Agregar.php">Agregar Disfraz</a>
               <a href="VerDisfraces.php">Ver Disfraces</a>
               <a href="Publicar.php">Publicar Pedido</a>
@@ -46,6 +55,10 @@ $mysqli = DbConfig::getConnection();
         
         
         <h1> Disfraz #<?php $id=$_POST['id']; echo $id; ?> :  </h1>
+        
+        <input id="search" type="text" placeholder="Buscar un disfraz.."><br><br>
+            
+        <div id="results"></div>
         
         
              <table class="table table-responsive-sm" id="disfraz">
@@ -88,7 +101,7 @@ $mysqli = DbConfig::getConnection();
 
                         <div class='images'>
                             <div class='popup' onclick='throwImage();'><img src=".$path." alt='No se pudó desplegar el imagen' height='320' width='240' >
-                            <img id='myPopup' src=".$path ." alt='No se pudó desplegar el imagen' height='800' width='600' class='popuptext'>
+                            <img id='myPopup' src=".$path." height='800' width='600' class='popuptext'>
                             </div>
                         </div>"
                         
@@ -98,6 +111,8 @@ $mysqli = DbConfig::getConnection();
                  </tbody>
         </table>
         
+        
+        
         <script>
   
     
@@ -105,6 +120,8 @@ $mysqli = DbConfig::getConnection();
       
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
+        
+
 
     }
 
