@@ -108,7 +108,7 @@ if(!empty($_SESSION['errores'])) {
               </div>
                 
                 <div class="form-group" id="newFile">
-                    <label for="foto"> <strong>Ingresa una foto:</strong> </label><br>
+                    <label for="Foto"> <strong>Ingresa una foto:</strong> </label><br>
                     <input  name="foto" type="file" id="Foto">
                     <button onclick="newArchivo()">Agregar otra foto</button><br>
                     <p id="stop"></p>

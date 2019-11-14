@@ -58,7 +58,8 @@ if(!empty($_SESSION['message'])) {
         <h3> Qué estás buscando ? </h3>
         
         
-        
+        <?php echo '<h3 style="color:red;">'.$message.'</h3>';
+            unset($_SESSION['message']);?>
         
         <div class="options"><br>
             <input id="search" type="text" placeholder="Buscar un disfraz.."><br><br>
