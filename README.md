@@ -14,12 +14,13 @@ Adèle Bourgeix
 # Technologies
 
 HTML/CSS/JAVASCRIPT
+
 PHP, AJAX
 
 # Versions
 
-Version 1 released on August 30th, 2019
-Version 2 released on October 7th, 2019
-Version 23released on November 13th, 2019
+* Version 1 released on August 30th, 2019
+* Version 2 released on October 7th, 2019
+* Version 3 released on November 13th, 2019
 
 
